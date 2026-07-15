@@ -3,6 +3,8 @@
 @theme {
   --color-supabase: #3ecf8e;
   --color-algolia: #003dff;
+  /* Text-safe Algolia blue: #003dff fails WCAG AA on the dark surface. */
+  --color-algolia-text: #4d7cff;
   --color-surface: #0a0a0a;
   --color-card: #141414;
   --color-border-subtle: #262626;
@@ -21,14 +23,6 @@ body {
   background: var(--color-surface);
   color: #ededed;
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
-}
-
-/* Duo-brand gradient text — the one strong hero treatment. */
-.brand-gradient {
-  background: linear-gradient(90deg, var(--color-supabase), var(--color-algolia));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
 }
 
 /* InstantSearch highlight marks (default CSS is not imported). */

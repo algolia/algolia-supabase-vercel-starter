@@ -4,8 +4,10 @@ export default function Home() {
   return (
     <div className="flex min-h-full flex-col">
       <header className="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-5">
-        <span className="font-mono text-sm text-zinc-300">
-          algolia<span className="mx-0.5 text-supabase">×</span>supabase
+        <span className="font-mono text-sm">
+          <span className="text-algolia-text">algolia</span>
+          <span className="mx-0.5 text-zinc-500">×</span>
+          <span className="text-supabase">supabase</span>
         </span>
         <a
           href="/admin"
@@ -22,13 +24,15 @@ export default function Home() {
             Open-source search starter
           </p>
           <h1 className="mx-auto max-w-3xl text-balance text-4xl font-semibold leading-tight tracking-tight text-zinc-50 sm:text-5xl">
-            Supabase stores it.{" "}
-            <span className="brand-gradient">Algolia finds it.</span> Vercel
+            <span className="text-supabase">Supabase</span> stores it.{" "}
+            <span className="text-algolia-text">Algolia</span> finds it. Vercel
             wires them.
           </h1>
           <p className="mx-auto mt-5 max-w-xl text-balance text-base leading-relaxed text-zinc-400">
             A production-ready template for typo-tolerant, instant search over
-            your Postgres data — indexed to Algolia, deployed on Vercel.
+            your Postgres data — indexed to{" "}
+            <span className="text-algolia-text">Algolia</span>, deployed on
+            Vercel.
           </p>
         </section>
 
@@ -37,9 +41,12 @@ export default function Home() {
 
       <footer className="border-t border-border-subtle">
         <div className="mx-auto flex w-full max-w-6xl flex-col items-center justify-between gap-2 px-6 py-6 text-xs text-zinc-500 sm:flex-row">
-          <span className="font-mono text-zinc-400">
-            Supabase <span className="text-zinc-600">·</span> Algolia{" "}
-            <span className="text-zinc-600">·</span> Vercel
+          <span className="font-mono">
+            <span className="text-supabase">Supabase</span>{" "}
+            <span className="text-zinc-600">·</span>{" "}
+            <span className="text-algolia-text">Algolia</span>{" "}
+            <span className="text-zinc-600">·</span>{" "}
+            <span className="text-zinc-300">Vercel</span>
           </span>
           <span>Built as an open-source starter template.</span>
         </div>
