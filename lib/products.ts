@@ -22,9 +22,9 @@ export type ProductRow = {
 // fields) must never reach a client component.
 const PLACEHOLDER_UPDATED_AT = "2024-01-01T00:00:00.000Z";
 
-function fromLocal(id: number): ProductRow | null {
-  const p = products.find((row) => row.id === id);
-  if (!p) return null;
+type LocalProduct = (typeof products)[number];
+
+function mapLocal(p: LocalProduct): ProductRow {
   return {
     id: p.id,
     name: p.name,
@@ -49,5 +49,13 @@ export async function getProduct(id: number): Promise<ProductRow | null> {
     );
     return row ?? null;
   }
-  return fromLocal(id);
+  const p = products.find((row) => row.id === id);
+  return p ? mapLocal(p) : null;
+}
+
+export async function getProducts(): Promise<ProductRow[]> {
+  if (process.env.POSTGRES_URL) {
+    return query<ProductRow>("select * from products order by id");
+  }
+  return [...products].sort((a, b) => a.id - b.id).map(mapLocal);
 }
