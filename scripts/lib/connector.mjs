@@ -1,8 +1,18 @@
 import { log } from "./log.mjs";
 import { INDEX_NAME, findTaskID } from "../../lib/ingestion.mjs";
 
+export function parseDbUrl(raw) {
+  try {
+    return new URL(raw);
+  } catch {
+    throw new Error(
+      "POSTGRES_URL is not a URL-format connection string (postgres://…) — the dashboard-steps helper needs one",
+    );
+  }
+}
+
 function printDashboardSteps() {
-  const url = new URL(process.env.POSTGRES_URL);
+  const url = parseDbUrl(process.env.POSTGRES_URL);
   console.log(
     [
       "",
