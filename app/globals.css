@@ -19,6 +19,11 @@
   color-scheme: dark;
 }
 
+::selection {
+  background: var(--color-algolia);
+  color: #fff;
+}
+
 body {
   background: var(--color-surface);
   color: #ededed;
