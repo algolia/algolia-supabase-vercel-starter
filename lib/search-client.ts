@@ -1,6 +1,10 @@
 import { liteClient } from "algoliasearch/lite";
 import type { SearchClient } from "instantsearch.js";
-import dataset from "@/data/products.json";
+// Public projection only - mirrors the connector transformation's allow-list.
+// data/products.json (cost_price, supplier_id, internal_notes, stock_location)
+// must never be imported from client-reachable code; a test keeps both files
+// in sync.
+import dataset from "@/data/products.public.json";
 
 // Fields that live in Algolia's index. DB-only columns (cost_price,
 // supplier_id, internal_notes, stock_location) stay in Postgres and are

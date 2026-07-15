@@ -1,0 +1,182 @@
+[
+  {
+    "id": 1,
+    "name": "Aurora Wireless Headphones",
+    "description": "Over-ear noise-cancelling headphones with 30h battery life and plush memory-foam earcups.",
+    "category": "Audio",
+    "price": 199,
+    "image_url": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=640",
+    "rating": 4.6
+  },
+  {
+    "id": 2,
+    "name": "Pulse True Wireless Earbuds",
+    "description": "Compact in-ear earbuds with active noise cancellation and a pocketable charging case.",
+    "category": "Audio",
+    "price": 129.99,
+    "image_url": "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=640",
+    "rating": 4.3
+  },
+  {
+    "id": 3,
+    "name": "Basalt Portable Bluetooth Speaker",
+    "description": "Rugged IP67 waterproof speaker delivering 360-degree sound and 24h playtime.",
+    "category": "Audio",
+    "price": 89.5,
+    "image_url": "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=640",
+    "rating": 4.4
+  },
+  {
+    "id": 4,
+    "name": "Meridian Studio Microphone",
+    "description": "USB condenser microphone with cardioid pickup for streaming, podcasts and vocals.",
+    "category": "Audio",
+    "price": 149,
+    "image_url": "https://images.unsplash.com/photo-1590602847861-f357a9332bbc?w=640",
+    "rating": 4.7
+  },
+  {
+    "id": 5,
+    "name": "Nimbus 14 Ultrabook Laptop",
+    "description": "14-inch aluminium laptop with a 12-core CPU, 16GB RAM and all-day battery.",
+    "category": "Computing",
+    "price": 1299,
+    "image_url": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=640",
+    "rating": 4.5
+  },
+  {
+    "id": 6,
+    "name": "Vertex Mechanical Keyboard",
+    "description": "Compact 75% hot-swappable mechanical keyboard with tactile switches and RGB backlight.",
+    "category": "Computing",
+    "price": 119,
+    "image_url": "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=640",
+    "rating": 4.6
+  },
+  {
+    "id": 7,
+    "name": "Glide Precision Wireless Mouse",
+    "description": "Ergonomic wireless mouse with 26K DPI sensor, silent clicks and USB-C fast charging.",
+    "category": "Computing",
+    "price": 59.99,
+    "image_url": "https://images.unsplash.com/photo-1527814050087-3793815479db?w=640",
+    "rating": 4.2
+  },
+  {
+    "id": 8,
+    "name": "Clarity 27 4K Monitor",
+    "description": "27-inch 4K IPS monitor with 99% sRGB coverage and a height-adjustable stand.",
+    "category": "Computing",
+    "price": 379,
+    "image_url": "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=640",
+    "rating": 4.5
+  },
+  {
+    "id": 9,
+    "name": "Orbit HD Streaming Webcam",
+    "description": "1080p webcam with autofocus, dual noise-cancelling mics and a privacy shutter.",
+    "category": "Computing",
+    "price": 79,
+    "image_url": "https://images.unsplash.com/photo-1618384887929-16ec33fab9ef?w=640",
+    "rating": 4.1
+  },
+  {
+    "id": 10,
+    "name": "Torrent 2TB Portable SSD",
+    "description": "Pocket-sized USB-C SSD with 1050MB/s transfer and shock-resistant metal chassis.",
+    "category": "Computing",
+    "price": 189,
+    "image_url": "https://images.unsplash.com/photo-1531492746076-161ca9bcad58?w=640",
+    "rating": 4.8
+  },
+  {
+    "id": 11,
+    "name": "Cascade 65W USB-C Charger",
+    "description": "Compact GaN wall charger with dual USB-C ports and foldable pins for travel.",
+    "category": "Accessories",
+    "price": 39.99,
+    "image_url": "https://images.unsplash.com/photo-1600490722773-35753aea6332?w=640",
+    "rating": 4.4
+  },
+  {
+    "id": 12,
+    "name": "Anchor 10000mAh Power Bank",
+    "description": "Slim power bank with 20W fast charging, USB-C in/out and a battery-level display.",
+    "category": "Accessories",
+    "price": 45,
+    "image_url": "https://images.unsplash.com/photo-1609592806598-0c6c3f4b8f6f?w=640",
+    "rating": 4.3
+  },
+  {
+    "id": 13,
+    "name": "Summit Adjustable Laptop Stand",
+    "description": "Aluminium laptop stand with adjustable height and angle for better desk ergonomics.",
+    "category": "Accessories",
+    "price": 49.5,
+    "image_url": "https://images.unsplash.com/photo-1527689368864-3a821dbccc34?w=640",
+    "rating": 4.6
+  },
+  {
+    "id": 14,
+    "name": "Harbor 7-in-1 USB-C Hub",
+    "description": "USB-C hub with HDMI 4K, gigabit Ethernet, SD reader and 100W passthrough charging.",
+    "category": "Accessories",
+    "price": 64.99,
+    "image_url": "https://images.unsplash.com/photo-1625842268584-8f3296236761?w=640",
+    "rating": 4.2
+  },
+  {
+    "id": 15,
+    "name": "Drift Woven Charging Cable 2m",
+    "description": "Braided USB-C to USB-C cable rated for 100W charging and 20Gbps data transfer.",
+    "category": "Accessories",
+    "price": 19.99,
+    "image_url": "https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=640",
+    "rating": 4.5
+  },
+  {
+    "id": 16,
+    "name": "Halo Smart LED Bulb 2-Pack",
+    "description": "Wi-Fi color-changing smart bulbs with voice control and scheduling via app.",
+    "category": "Smart Home",
+    "price": 34.99,
+    "image_url": "https://images.unsplash.com/photo-1550985616-10810253b84d?w=640",
+    "rating": 4.1
+  },
+  {
+    "id": 17,
+    "name": "Sentinel Indoor Security Camera",
+    "description": "1080p indoor camera with night vision, motion alerts and two-way audio.",
+    "category": "Smart Home",
+    "price": 59,
+    "image_url": "https://images.unsplash.com/photo-1558002038-1055907df827?w=640",
+    "rating": 4
+  },
+  {
+    "id": 18,
+    "name": "Vale Smart Thermostat",
+    "description": "Learning smart thermostat with room sensors, energy reports and app scheduling.",
+    "category": "Smart Home",
+    "price": 149,
+    "image_url": "https://images.unsplash.com/photo-1567925086994-c9d96f8c14fc?w=640",
+    "rating": 4.4
+  },
+  {
+    "id": 19,
+    "name": "Gateway Smart Video Doorbell",
+    "description": "Battery video doorbell with 2K resolution, person detection and cloud clips.",
+    "category": "Smart Home",
+    "price": 99.99,
+    "image_url": "https://images.unsplash.com/photo-1622819584099-e04ccb14e8a7?w=640",
+    "rating": 4.2
+  },
+  {
+    "id": 20,
+    "name": "Ember Smart Plug 4-Pack",
+    "description": "Wi-Fi smart plugs with energy monitoring, timers and voice-assistant support.",
+    "category": "Smart Home",
+    "price": 42.99,
+    "image_url": "https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=640",
+    "rating": 4.5
+  }
+]
