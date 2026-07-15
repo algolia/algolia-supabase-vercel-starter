@@ -3,6 +3,7 @@
 import { revalidatePath } from "next/cache";
 import { query } from "@/lib/db";
 import { ingestionClient, resolveTaskID } from "@/lib/ingestion.mjs";
+import { normalizeProductForm, PRODUCT_FIELDS } from "@/lib/product-form.mjs";
 
 export type ActionState = { ok: boolean; message: string };
 
@@ -27,18 +28,14 @@ export async function saveProduct(
   if (!process.env.POSTGRES_URL) return { ok: false, message: NOT_CONNECTED };
 
   const id = formData.get("id");
-  const fields = [
-    "name",
-    "description",
-    "category",
-    "price",
-    "image_url",
-    "rating",
-    "cost_price",
-    "supplier_id",
-    "internal_notes",
-    "stock_location",
-  ].map((k) => formData.get(k));
+  const raw = Object.fromEntries(
+    PRODUCT_FIELDS.map((k: string) => [k, formData.get(k)]),
+  );
+  const { values, error } = normalizeProductForm(raw);
+  if (values === undefined) {
+    return { ok: false, message: error ?? "Invalid product" };
+  }
+  const fields = PRODUCT_FIELDS.map((k: string) => values[k]);
 
   if (id) {
     await query(
