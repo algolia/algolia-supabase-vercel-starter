@@ -1,5 +1,5 @@
 {
-  "name": "algolia-supabase-starter",
+  "name": "algolia-supabase-vercel-starter",
   "version": "0.1.0",
   "private": true,
   "scripts": {
