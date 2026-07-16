@@ -9,6 +9,7 @@ type ProductRecord = {
   price: number;
   image_url: string;
   rating: number;
+  quantity: number;
 };
 
 const price = new Intl.NumberFormat("en-US", {
@@ -34,6 +35,11 @@ export function ProductHit({ hit }: { hit: Hit<ProductRecord> }) {
           <span className="text-supabase">★</span>
           {hit.rating.toFixed(1)}
         </span>
+        {!hit.quantity && (
+          <span className="absolute left-2 top-2 flex items-center gap-1 rounded-full bg-black/60 px-2 py-0.5 text-[11px] font-medium text-zinc-100 backdrop-blur">
+            Out of stock
+          </span>
+        )}
       </div>
       <div className="flex flex-1 flex-col gap-2 p-4">
         <h3 className="line-clamp-1 text-sm font-semibold text-zinc-100">

@@ -5,9 +5,11 @@ import {
   Configure,
   Hits,
   InstantSearch,
+  useNumericMenu,
   RefinementList,
   SearchBox,
   Stats,
+  ToggleRefinement,
 } from "react-instantsearch";
 import { ProductHit } from "./product-hit";
 
@@ -53,8 +55,7 @@ export function SearchExperience() {
             form: "relative",
             input:
               "w-full rounded-xl border border-border-subtle bg-card py-3.5 pl-11 pr-10 text-base text-zinc-100 placeholder:text-zinc-500 outline-none transition-colors focus:border-supabase focus:ring-2 focus:ring-supabase/30",
-            submit:
-              "absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-500",
+            submit: "absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-500",
             reset:
               "absolute right-3.5 top-1/2 -translate-y-1/2 text-zinc-500 transition-colors hover:text-zinc-200",
             loadingIndicator: "hidden",
@@ -65,24 +66,11 @@ export function SearchExperience() {
       </div>
 
       <div className="mt-10 grid grid-cols-1 gap-8 lg:grid-cols-[200px_1fr]">
-        <aside className="lg:sticky lg:top-8 lg:self-start">
-          <h2 className="mb-3 text-xs font-semibold uppercase tracking-wider text-zinc-500">
-            Category
-          </h2>
-          <RefinementList
-            attribute="category"
-            classNames={{
-              list: "flex flex-col gap-0.5",
-              item: "list-none",
-              label:
-                "flex cursor-pointer items-center gap-2.5 rounded-md px-2 py-1.5 text-sm text-zinc-400 transition-colors hover:bg-white/5 hover:text-zinc-200",
-              selectedItem: "text-zinc-50",
-              checkbox: "facet-checkbox size-4 rounded",
-              labelText: "flex-1",
-              count:
-                "rounded-full bg-white/5 px-2 py-0.5 text-[11px] tabular-nums text-zinc-500",
-            }}
-          />
+        <aside className="lg:sticky lg:top-8 lg:self-start space-y-4">
+          <CategoryMenu />
+          <PriceMenu />
+          <RatingMenu />
+          <InStockMenu />
         </aside>
 
         <section>
@@ -106,6 +94,121 @@ export function SearchExperience() {
         </section>
       </div>
     </InstantSearch>
+  );
+}
+
+function CategoryMenu() {
+  return (
+    <>
+      <h2 className="mb-3 text-xs font-semibold uppercase tracking-wider text-zinc-500">
+        Category
+      </h2>
+      <RefinementList
+        attribute="category"
+        classNames={{
+          list: "flex flex-col gap-0.5",
+          item: "list-none",
+          label:
+            "flex cursor-pointer items-center gap-2.5 rounded-md px-2 py-1.5 text-sm text-zinc-400 transition-colors hover:bg-white/5 hover:text-zinc-200",
+          selectedItem: "text-zinc-50",
+          checkbox: "facet-checkbox size-4 rounded",
+          labelText: "flex-1",
+          count:
+            "rounded-full bg-white/5 px-2 py-0.5 text-[11px] tabular-nums text-zinc-500",
+        }}
+      />
+    </>
+  );
+}
+
+function InStockMenu() {
+  return (
+    <>
+      <h2 className="mb-3 text-xs font-semibold uppercase tracking-wider text-zinc-500">
+        Available
+      </h2>
+      <ToggleRefinement
+        attribute="in_stock"
+        on={true}
+        label="Hide out of stock"
+        classNames={{
+          root: "flex cursor-pointer items-center gap-2.5 rounded-md px-2 py-1.5 text-sm text-zinc-400 transition-colors hover:bg-white/5 hover:text-zinc-200",
+          label: "flex items-center gap-2.5",
+        }}
+      />
+    </>
+  );
+}
+
+function RatingMenu() {
+  const { items, refine } = useNumericMenu({
+    attribute: "rating",
+    items: [
+      { label: "All ratings" },
+      { label: "★★★★ +", start: 4 },
+      { label: "★★★ +", start: 3 },
+      { label: "★★ +", start: 2 },
+      { label: "★ +", start: 1 },
+    ],
+  });
+
+  return (
+    <>
+      <h2 className="mb-3 text-xs font-semibold uppercase tracking-wider text-zinc-500">
+        Rating
+      </h2>
+      <ul className="flex flex-col gap-0.5">
+        {items.map((item) => (
+          <li key={item.value}>
+            <label className="flex cursor-pointer items-center gap-2.5 rounded-md px-2 py-1.5 text-sm text-zinc-400">
+              <input
+                type="radio"
+                name="rating"
+                checked={item.isRefined}
+                onChange={() => refine(item.value)}
+                className="facet-checkbox size-4"
+              />
+              <span>{item.label}</span>
+            </label>
+          </li>
+        ))}
+      </ul>
+    </>
+  );
+}
+
+function PriceMenu() {
+  const { items, refine } = useNumericMenu({
+    attribute: "price",
+    items: [
+      { label: "All prices" },
+      { label: "$0 - $50", start: 0, end: 49.99 },
+      { label: "$50 - $100", start: 50, end: 99.99 },
+      { label: "$100+", start: 100 },
+    ],
+  });
+  return (
+    <>
+      <h2 className="mb-3 text-xs font-semibold uppercase tracking-wider text-zinc-500">
+        Price
+      </h2>
+      <ul className="flex flex-col gap-0.5">
+        {items.map((item) => (
+          <li key={item.value}>
+            <label className="flex cursor-pointer items-center gap-2.5 rounded-md px-2 py-1.5 text-sm text-zinc-400">
+              <input
+                type="radio"
+                name="price"
+                checked={item.isRefined}
+                onChange={() => refine(item.value)}
+                className="facet-checkbox size-4"
+              />
+              <span>{item.label}</span>
+            </label>
+          </li>
+        ))}
+      </ul>
+    </>
   );
 }
 
