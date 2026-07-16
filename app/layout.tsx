@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Algolia × Supabase starter",
+  title: "Algolia × Supabase × Vercel starter",
   description:
-    "Supabase stores it. Algolia finds it. Vercel wires them. An open-source search starter.",
+    "Algolia finds it. Supabase stores it. Vercel wires them. An open-source search starter.",
 };
 
 export default function RootLayout({
