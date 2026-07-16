@@ -1,5 +1,6 @@
 "use client";
 
+import { liteClient as algoliasearch } from "algoliasearch/lite";
 import {
   Configure,
   Hits,
@@ -8,8 +9,12 @@ import {
   SearchBox,
   Stats,
 } from "react-instantsearch";
-import { isMockClient, searchClient } from "@/lib/search-client";
 import { ProductHit } from "./product-hit";
+
+const searchClient = algoliasearch(
+  process.env.NEXT_PUBLIC_ALGOLIA_APP_ID!,
+  process.env.NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY!,
+);
 
 export function SearchExperience() {
   return (
@@ -40,13 +45,6 @@ export function SearchExperience() {
             resetIcon: "size-3.5",
           }}
         />
-        {isMockClient && (
-          <p className="mt-2 text-xs text-zinc-500">
-            Running on a local mock over{" "}
-            <code className="text-zinc-400">data/products.json</code> — connect{" "}
-            <span className="text-algolia-text">Algolia</span> to go live.
-          </p>
-        )}
       </div>
 
       <div className="mt-10 grid grid-cols-1 gap-8 lg:grid-cols-[200px_1fr]">
