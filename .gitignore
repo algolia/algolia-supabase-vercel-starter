@@ -44,8 +44,6 @@ next-env.d.ts
 # local-only presenter/parking notes
 FLOW.md
 TODO_LATER.md
-seed.sql
-transform.js
 
 # internal process docs
 docs/superpowers/
