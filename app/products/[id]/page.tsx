@@ -27,7 +27,6 @@ export default async function ProductPage({
     { term: "Cost price", value: formatPrice(product.cost_price) },
     { term: "Supplier", value: product.supplier_id ?? "—" },
     { term: "Stock location", value: product.stock_location ?? "—" },
-    { term: "Quantity in stock", value: String(product.quantity) },
     { term: "Internal notes", value: product.internal_notes ?? "—" },
   ];
 
@@ -71,6 +70,11 @@ export default async function ProductPage({
                 {Number(product.rating).toFixed(1)}
               </span>
             )}
+            <span className="text-sm text-zinc-400">
+              {Number(product.quantity) > 0
+                ? `In stock: ${product.quantity}`
+                : "Out of stock"}
+            </span>
           </div>
           <p className="mt-5 text-base leading-relaxed text-zinc-400">
             {product.description}
