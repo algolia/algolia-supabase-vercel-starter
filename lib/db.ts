@@ -5,8 +5,13 @@ let pool: Pool | undefined;
 
 function getPool(): Pool {
   if (!pool) {
+    // Supabase URLs carry sslmode=require, which pg escalates to verify-full
+    // and lets override this ssl object — strip it so rejectUnauthorized
+    // applies (the pooler presents a self-signed chain).
+    const url = new URL(process.env.POSTGRES_URL!);
+    url.searchParams.delete("sslmode");
     pool = new Pool({
-      connectionString: process.env.POSTGRES_URL,
+      connectionString: url.toString(),
       ssl: { rejectUnauthorized: false },
       max: 5,
     });
