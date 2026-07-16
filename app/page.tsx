@@ -9,12 +9,6 @@ export default function Home() {
           <span className="mx-0.5 text-zinc-500">×</span>
           <span className="text-supabase">supabase</span>
         </span>
-        <a
-          href="/admin"
-          className="rounded-md px-3 py-1.5 text-sm text-zinc-400 transition-colors hover:text-zinc-100"
-        >
-          Admin
-        </a>
       </header>
 
       <main className="mx-auto w-full max-w-6xl flex-1 px-6 pb-24">
