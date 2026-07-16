@@ -35,14 +35,23 @@ Create the connector from the Algolia dashboard → **Data sources** → **Conne
 
 1. **Connect Supabase** - connect to Supabase directly to prefill all the database values from the Advanced Configuration section
 2. **Transformation** — paste [`demo/transform.js`](demo/transform.js) into the
-   wizard's transformation editor; it maps `id` to `objectID` and returns only the
-   searchable attributes. Check the preview: the internal-only
-   fields (`cost_price`, `supplier_id`, `internal_notes`, `stock_location`,
-   `quantity`) must be gone.
+   wizard's transformation editor; it maps `id` to `objectID`, returns only the
+   searchable attributes, and derives `in_stock` from `quantity` — a transformation
+   can compute fields, not just strip them. Check the preview: the internal-only
+   fields (`cost_price`, `supplier_id`, `internal_notes`, `stock_location`) must be
+   gone.
 3. **Destination** — set the index name to `products`.
 4. **Task** — run a full reindex. Add a schedule if you want recurring syncs.
 
 Reload your deployment — search is live.
+
+## Configure facets
+
+The sidebar filters need faceting enabled. In the Algolia dashboard, open index
+`products` → **Configuration** → **Facets** and add:
+
+- `category`, `price`, `rating` — searchable facets for the sidebar
+- `in_stock` — set as filter-only (powers the "Hide out of stock" toggle)
 
 ## Local development
 
