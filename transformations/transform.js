@@ -1,5 +1,5 @@
 // Allow-list: only searchable attributes reach the index.
-// DB-only fields (cost_price, supplier_id, internal_notes, stock_location) never leave Supabase.
+// DB-only fields (cost_price, supplier_id, internal_notes, stock_location, quantity) never leave Supabase.
 // Canonical copy of the code pasted into the Algolia dashboard transformation editor.
 async function transform(record, helper) {
   return {
