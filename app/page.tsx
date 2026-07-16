@@ -8,6 +8,8 @@ export default function Home() {
           <span className="text-algolia-text">algolia</span>
           <span className="mx-0.5 text-zinc-500">×</span>
           <span className="text-supabase">supabase</span>
+          <span className="mx-0.5 text-zinc-500">×</span>
+          <span className="text-zinc-300">vercel</span>
         </span>
       </header>
 
@@ -18,14 +20,14 @@ export default function Home() {
             Open-source search starter
           </p>
           <h1 className="mx-auto max-w-3xl text-balance text-4xl font-semibold leading-tight tracking-tight text-zinc-400 sm:text-5xl">
-            <span className="text-supabase font-bold">Supabase</span> stores it.{" "}
-            <span className="text-algolia-text font-bold">Algolia</span> finds
+            <span className="text-algolia-text font-bold">Algolia</span> finds it.{" "}
+            <span className="text-supabase font-bold">Supabase</span> stores
             it. <span className="font-bold text-zinc-50">Vercel</span>{' '}
             wires them.
           </h1>
           <p className="mx-auto mt-5 max-w-xl text-balance text-base leading-relaxed text-zinc-400">
             A production-ready template for typo-tolerant, instant search over
-            your Postgres data — indexed to{" "}
+            your Postgres data, indexed to{" "}
             <span className="text-algolia-text">Algolia</span>, deployed on
             Vercel.
           </p>
@@ -37,9 +39,9 @@ export default function Home() {
       <footer className="border-t border-border-subtle">
         <div className="mx-auto flex w-full max-w-6xl flex-col items-center justify-between gap-2 px-6 py-6 text-xs text-zinc-500 sm:flex-row">
           <span className="font-mono">
-            <span className="text-supabase">Supabase</span>{" "}
-            <span className="text-zinc-600">·</span>{" "}
             <span className="text-algolia-text">Algolia</span>{" "}
+            <span className="text-zinc-600">·</span>{" "}
+            <span className="text-supabase">Supabase</span>{" "}
             <span className="text-zinc-600">·</span>{" "}
             <span className="text-zinc-300">Vercel</span>
           </span>

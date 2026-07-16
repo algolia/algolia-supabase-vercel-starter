@@ -1,15 +1,15 @@
-# Algolia × Supabase Starter
+# Algolia × Supabase × Vercel Starter
 
 A minimal [Next.js](https://nextjs.org) starter for instant, typo-tolerant search
-over Postgres data. [Supabase](https://supabase.com) stores the products,
-[Algolia](https://www.algolia.com) indexes and searches them, and the
+over Postgres data. [Algolia](https://www.algolia.com) indexes and searches the
+products, [Supabase](https://supabase.com) stores them, and the
 [Algolia connector](https://www.algolia.com/doc/tools/connectors/postgresql/) keeps
 the index in sync — no sync code in the app. Deploy it, seed the database, connect
 the two from their dashboards, and search is live.
 
 ![Screenshot of the starter's search experience](docs/screenshot.png)
 
-**Live demo:** [algolia-supabase-starter.vercel.app](https://algolia-supabase-starter.vercel.app)
+**Live demo:** [algolia-supabase-vercel-starter.vercel.app](https://algolia-supabase-vercel-starter.vercel.app)
 
 ## Deploy your own
 
@@ -17,7 +17,7 @@ The button installs both integrations on your new project — Supabase provision
 Postgres database, Algolia provisions an application — and injects their environment
 variables. No manual configuration.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FLorrisSaintGenez%2Falgolia-supabase-starter&project-name=algolia-supabase-starter&repository-name=algolia-supabase-starter&stores=%5B%7B%22type%22%3A%22integration%22%2C%22integrationSlug%22%3A%22algolia%22%2C%22productSlug%22%3A%22application%22%7D%2C%7B%22type%22%3A%22integration%22%2C%22integrationSlug%22%3A%22supabase%22%2C%22productSlug%22%3A%22supabase%22%7D%5D)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Falgolia%2Falgolia-supabase-vercel-starter&project-name=algolia-supabase-vercel-starter&repository-name=algolia-supabase-vercel-starter&stores=%5B%7B%22type%22%3A%22integration%22%2C%22integrationSlug%22%3A%22algolia%22%2C%22productSlug%22%3A%22application%22%7D%2C%7B%22type%22%3A%22integration%22%2C%22integrationSlug%22%3A%22supabase%22%2C%22productSlug%22%3A%22supabase%22%7D%5D)
 
 ## Set up the database
 
@@ -31,26 +31,23 @@ this demo uses a 12-column table mixing searchable and internal-only fields.
 ## Connect Algolia
 
 Create the connector from the Algolia dashboard → **Data sources** → **Connectors** →
-**PostgreSQL**:
+**Supabase**:
 
-1. **Source** — connect with the values from Supabase → **Project Settings** →
-   **Database**. Use the **Session pooler** (port `5432`) host, database `postgres`,
-   user, and password. Set the table to `products`.
-2. **Key** — set the primary key to `id`.
-3. **Transformation** — paste [`demo/transform.js`](demo/transform.js) into the
+1. **Connect Supabase** - connect to Supabase directly to prefill all the database values from the Advanced Configuration section
+2. **Transformation** — paste [`demo/transform.js`](demo/transform.js) into the
    wizard's transformation editor; it maps `id` to `objectID` and returns only the
    searchable attributes. Check the preview: the internal-only
    fields (`cost_price`, `supplier_id`, `internal_notes`, `stock_location`,
    `quantity`) must be gone.
-4. **Destination** — set the index name to `products`.
-5. **Task** — run a full reindex. Add a schedule if you want recurring syncs.
+3. **Destination** — set the index name to `products`.
+4. **Task** — run a full reindex. Add a schedule if you want recurring syncs.
 
 Reload your deployment — search is live.
 
 ## Local development
 
 ```bash
-git clone https://github.com/LorrisSaintGenez/algolia-supabase-starter && cd algolia-supabase-starter
+git clone https://github.com/algolia/algolia-supabase-vercel-starter && cd algolia-supabase-vercel-starter
 npm install
 npx vercel link              # link to the project you deployed
 npx vercel env pull .env.local
@@ -64,12 +61,12 @@ Open [http://localhost:3000](http://localhost:3000).
 The integrations inject these environment variables. Only the two Algolia search
 values are exposed to the browser — mapped in [`next.config.ts`](next.config.ts):
 
-| Variable | Purpose | Browser-safe? |
-| --- | --- | --- |
-| `ALGOLIA_APP_ID` | Identifies your Algolia application | ✅ exposed as `NEXT_PUBLIC_ALGOLIA_APP_ID` |
-| `ALGOLIA_SEARCH_API_KEY` | Search-only key used by the frontend | ✅ exposed as `NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY` |
-| `POSTGRES_URL` | Supabase connection string for the product page | ❌ server-side only |
-| `ALGOLIA_WRITE_API_KEY` | Indexing key | ❌ unused by the app; the connector indexes from the dashboard |
+| Variable                 | Purpose                                         | Browser-safe?                                                  |
+| ------------------------ | ----------------------------------------------- | -------------------------------------------------------------- |
+| `ALGOLIA_APP_ID`         | Identifies your Algolia application             | ✅ exposed as `NEXT_PUBLIC_ALGOLIA_APP_ID`                     |
+| `ALGOLIA_SEARCH_API_KEY` | Search-only key used by the frontend            | ✅ exposed as `NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY`             |
+| `POSTGRES_URL`           | Supabase connection string for the product page | ❌ server-side only                                            |
+| `ALGOLIA_WRITE_API_KEY`  | Indexing key                                    | ❌ unused by the app; the connector indexes from the dashboard |
 
 Key files:
 
