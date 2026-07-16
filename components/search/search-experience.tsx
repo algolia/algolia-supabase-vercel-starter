@@ -11,15 +11,32 @@ import {
 } from "react-instantsearch";
 import { ProductHit } from "./product-hit";
 
-const searchClient = algoliasearch(
-  process.env.NEXT_PUBLIC_ALGOLIA_APP_ID!,
-  process.env.NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY!,
-);
+const appId = process.env.NEXT_PUBLIC_ALGOLIA_APP_ID;
+const searchApiKey = process.env.NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY;
+
+// Lazy singleton — only constructed once env is present, stable across renders.
+let searchClient: ReturnType<typeof algoliasearch> | undefined;
+function getSearchClient() {
+  searchClient ??= algoliasearch(appId!, searchApiKey!);
+  return searchClient;
+}
 
 export function SearchExperience() {
+  if (!appId || !searchApiKey) {
+    return (
+      <div className="mx-auto w-full max-w-2xl rounded-xl border border-border-subtle bg-card p-5 text-sm text-zinc-400">
+        Search activates once the{" "}
+        <span className="text-algolia-text">Algolia</span> integration env vars
+        are set — run{" "}
+        <code className="text-zinc-200">vercel env pull .env.local</code> and
+        restart.
+      </div>
+    );
+  }
+
   return (
     <InstantSearch
-      searchClient={searchClient}
+      searchClient={getSearchClient()}
       indexName="products"
       future={{ preserveSharedStateOnUnmount: true }}
     >
