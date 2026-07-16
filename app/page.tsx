@@ -23,9 +23,10 @@ export default function Home() {
             <span className="size-1.5 rounded-full bg-supabase" />
             Open-source search starter
           </p>
-          <h1 className="mx-auto max-w-3xl text-balance text-4xl font-semibold leading-tight tracking-tight text-zinc-50 sm:text-5xl">
-            <span className="text-supabase">Supabase</span> stores it.{" "}
-            <span className="text-algolia-text">Algolia</span> finds it. Vercel
+          <h1 className="mx-auto max-w-3xl text-balance text-4xl font-semibold leading-tight tracking-tight text-zinc-400 sm:text-5xl">
+            <span className="text-supabase font-bold">Supabase</span> stores it.{" "}
+            <span className="text-algolia-text font-bold">Algolia</span> finds
+            it. <span className="font-bold text-zinc-50">Vercel</span>{' '}
             wires them.
           </h1>
           <p className="mx-auto mt-5 max-w-xl text-balance text-base leading-relaxed text-zinc-400">

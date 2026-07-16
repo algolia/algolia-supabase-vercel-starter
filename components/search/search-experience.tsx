@@ -41,7 +41,7 @@ export function SearchExperience() {
           }}
         />
         {isMockClient && (
-          <p className="mt-2 text-center text-xs text-zinc-500">
+          <p className="mt-2 text-xs text-zinc-500">
             Running on a local mock over{" "}
             <code className="text-zinc-400">data/products.json</code> — connect{" "}
             <span className="text-algolia-text">Algolia</span> to go live.
