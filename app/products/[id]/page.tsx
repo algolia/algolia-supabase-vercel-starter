@@ -65,7 +65,7 @@ export default async function ProductPage({
             <span className="text-2xl font-semibold text-zinc-100">
               {formatPrice(product.price)}
             </span>
-            {product.rating && (
+            {product.rating != null && (
               <span className="flex items-center gap-1 text-sm text-zinc-400">
                 <span className="text-supabase">★</span>
                 {Number(product.rating).toFixed(1)}
