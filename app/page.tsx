@@ -1,5 +1,8 @@
 import { SearchExperience } from "@/components/search/search-experience";
 
+// Search reads NEXT_PUBLIC_ALGOLIA_* at request time; skip build-time prerender.
+export const dynamic = "force-dynamic";
+
 export default function Home() {
   return (
     <div className="flex min-h-full flex-col">
