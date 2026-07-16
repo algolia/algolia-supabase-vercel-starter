@@ -7,10 +7,8 @@ over Postgres data. [Supabase](https://supabase.com) stores the products,
 the index in sync — no sync code in the app. Deploy it, seed the database, connect
 the two from their dashboards, and search is live.
 
-<!-- TODO: capture docs/screenshot.png -->
 ![Screenshot of the starter's search experience](docs/screenshot.png)
 
-<!-- TODO: publish the live demo -->
 **Live demo:** [algolia-supabase-starter.vercel.app](https://algolia-supabase-starter.vercel.app)
 
 ## Deploy your own
@@ -19,14 +17,16 @@ The button installs both integrations on your new project — Supabase provision
 Postgres database, Algolia provisions an application — and injects their environment
 variables. No manual configuration.
 
-<!-- TODO: confirm supabase slugs at integration install -->
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FLorrisSaintGenez%2Falgolia-supabase-starter&project-name=algolia-supabase-starter&repository-name=algolia-supabase-starter&stores=%5B%7B%22type%22%3A%22integration%22%2C%22integrationSlug%22%3A%22algolia%22%2C%22productSlug%22%3A%22application%22%7D%2C%7B%22type%22%3A%22integration%22%2C%22integrationSlug%22%3A%22supabase%22%2C%22productSlug%22%3A%22supabase%22%7D%5D)
 
 ## Set up the database
 
-Create and seed a `products` table in the Supabase **SQL Editor** (open your
-project → **SQL Editor**) — this demo uses a 12-column table mixing searchable
-and internal-only fields.
+Create and seed a `products` table by pasting [`demo/seed.sql`](demo/seed.sql) into
+the Supabase **SQL Editor** (open your project → **SQL Editor**) and running it —
+this demo uses a 12-column table mixing searchable and internal-only fields.
+
+> The [`demo/`](demo) folder holds the sample dataset and transformation used by
+> this walkthrough — replace them with your own data when adapting the template.
 
 ## Connect Algolia
 
@@ -37,8 +37,9 @@ Create the connector from the Algolia dashboard → **Data sources** → **Conne
    **Database**. Use the **Session pooler** (port `5432`) host, database `postgres`,
    user, and password. Set the table to `products`.
 2. **Key** — set the primary key to `id`.
-3. **Transformation** — add a transformation that maps `id` to `objectID` and
-   returns only the searchable attributes; check the preview: the internal-only
+3. **Transformation** — paste [`demo/transform.js`](demo/transform.js) into the
+   wizard's transformation editor; it maps `id` to `objectID` and returns only the
+   searchable attributes. Check the preview: the internal-only
    fields (`cost_price`, `supplier_id`, `internal_notes`, `stock_location`,
    `quantity`) must be gone.
 4. **Destination** — set the index name to `products`.
