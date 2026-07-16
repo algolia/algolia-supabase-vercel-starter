@@ -27,6 +27,7 @@ export default async function ProductPage({
     { term: "Cost price", value: formatPrice(product.cost_price) },
     { term: "Supplier", value: product.supplier_id ?? "—" },
     { term: "Stock location", value: product.stock_location ?? "—" },
+    { term: "Quantity in stock", value: String(product.quantity) },
     { term: "Internal notes", value: product.internal_notes ?? "—" },
   ];
 

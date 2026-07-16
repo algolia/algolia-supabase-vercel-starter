@@ -42,7 +42,7 @@ Create the connector from the Algolia dashboard → **Data sources** → **Conne
    user, and password. Set the table to `products`.
 2. **Key** — set the primary key to `id`.
 3. **Transformation** — paste the code below so DB-only fields
-   (`cost_price`, `supplier_id`, `internal_notes`, `stock_location`) never reach the
+   (`cost_price`, `supplier_id`, `internal_notes`, `stock_location`, `quantity`) never reach the
    index. Check the preview: those fields must be gone.
 
    ```js

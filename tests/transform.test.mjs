@@ -9,7 +9,7 @@ const transform = new vm.Script(`${code}; transform`).runInNewContext();
 const row = {
   id: 7, name: "X", description: "Y", category: "Audio", price: "19.90",
   image_url: "https://x/y.jpg", rating: "4.5",
-  cost_price: "9.00", supplier_id: "S", internal_notes: "secret", stock_location: "W", updated_at: "2026-01-01",
+  cost_price: "9.00", supplier_id: "S", internal_notes: "secret", stock_location: "W", quantity: 42, updated_at: "2026-01-01",
 };
 
 test("keeps only searchable fields, maps id to objectID", async () => {

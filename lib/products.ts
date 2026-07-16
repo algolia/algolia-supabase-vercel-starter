@@ -13,6 +13,7 @@ export type ProductRow = {
   supplier_id: string | null;
   internal_notes: string | null;
   stock_location: string | null;
+  quantity: number;
   updated_at: string;
 };
 
