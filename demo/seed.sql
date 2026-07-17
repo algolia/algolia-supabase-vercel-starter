@@ -183,7 +183,7 @@ on conflict (id) do update set
     quantity = excluded.quantity,
     updated_at = now();
 
-insert into products (id, name, description, category, price, image_url, rating, cost_price, supplier_id, internal_notes, stock_location, quantity) values (12, 'Anchor 10000mAh Power Bank', 'Slim power bank with 20W fast charging, USB-C in/out and a battery-level display.', 'Accessories', 45, 'https://images.unsplash.com/photo-1609592806598-0c6c3f4b8f6f?w=640', 3.5, 15.8, 'SUP-VOLTIQ-010', 'Air freight restricted; sea only. Plan 6-week buffer.', 'WH-US-1 / Aisle 08', 175)
+insert into products (id, name, description, category, price, image_url, rating, cost_price, supplier_id, internal_notes, stock_location, quantity) values (12, 'Anchor 10000mAh Power Bank', 'Slim power bank with 20W fast charging, USB-C in/out and a battery-level display.', 'Accessories', 45, 'https://images.unsplash.com/photo-1566554738544-d962991c3fee?w=640', 3.5, 15.8, 'SUP-VOLTIQ-010', 'Air freight restricted; sea only. Plan 6-week buffer.', 'WH-US-1 / Aisle 08', 175)
 on conflict (id) do update set
     name = excluded.name,
     description = excluded.description,
@@ -273,7 +273,7 @@ on conflict (id) do update set
     quantity = excluded.quantity,
     updated_at = now();
 
-insert into products (id, name, description, category, price, image_url, rating, cost_price, supplier_id, internal_notes, stock_location, quantity) values (18, 'Vale Smart Thermostat', 'Learning smart thermostat with room sensors, energy reports and app scheduling.', 'Smart Home', 149, 'https://images.unsplash.com/photo-1567925086994-c9d96f8c14fc?w=640', 0.6, 73, 'SUP-LUMEO-015', 'Utility rebate partnership pending; do not advertise rebate yet.', 'WH-US-1 / Aisle 14', 20)
+insert into products (id, name, description, category, price, image_url, rating, cost_price, supplier_id, internal_notes, stock_location, quantity) values (18, 'Vale Smart Thermostat', 'Learning smart thermostat with room sensors, energy reports and app scheduling.', 'Smart Home', 149, 'https://images.unsplash.com/photo-1545259741-2ea3ebf61fa3?w=640', 0.6, 73, 'SUP-LUMEO-015', 'Utility rebate partnership pending; do not advertise rebate yet.', 'WH-US-1 / Aisle 14', 20)
 on conflict (id) do update set
     name = excluded.name,
     description = excluded.description,
@@ -288,7 +288,7 @@ on conflict (id) do update set
     quantity = excluded.quantity,
     updated_at = now();
 
-insert into products (id, name, description, category, price, image_url, rating, cost_price, supplier_id, internal_notes, stock_location, quantity) values (19, 'Gateway Smart Video Doorbell', 'Battery video doorbell with 2K resolution, person detection and cloud clips.', 'Smart Home', 99.99, 'https://images.unsplash.com/photo-1622819584099-e04ccb14e8a7?w=640', 3.3, 42.7, 'SUP-GUARDNET-016', 'Chime bundle returns high; ship with quick-start card v3.', 'WH-EU-2 / Aisle 18', 75)
+insert into products (id, name, description, category, price, image_url, rating, cost_price, supplier_id, internal_notes, stock_location, quantity) values (19, 'Gateway Smart Video Doorbell', 'Battery video doorbell with 2K resolution, person detection and cloud clips.', 'Smart Home', 99.99, 'https://images.unsplash.com/photo-1633194883650-df448a10d554?w=640', 3.3, 42.7, 'SUP-GUARDNET-016', 'Chime bundle returns high; ship with quick-start card v3.', 'WH-EU-2 / Aisle 18', 75)
 on conflict (id) do update set
     name = excluded.name,
     description = excluded.description,
