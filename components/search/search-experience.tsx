@@ -2,7 +2,6 @@
 
 import { liteClient as algoliasearch } from "algoliasearch/lite";
 import {
-  Configure,
   Hits,
   InstantSearch,
   useNumericMenu,
@@ -42,7 +41,6 @@ export function SearchExperience() {
       indexName="products"
       future={{ preserveSharedStateOnUnmount: true }}
     >
-      <Configure hitsPerPage={12} />
 
       <div className="mx-auto w-full max-w-2xl">
         <SearchBox
