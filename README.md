@@ -67,15 +67,19 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ## How it works
 
-The integrations inject these environment variables. Only the two Algolia search
-values are exposed to the browser — mapped in [`next.config.ts`](next.config.ts):
+The integrations inject these environment variables. The Algolia integration may
+use bare (`ALGOLIA_*`) or `NEXT_PUBLIC_`-prefixed names — [`next.config.ts`](next.config.ts)
+maps either shape. Only the two Algolia search values are exposed to the browser:
 
-| Variable                 | Purpose                                         | Browser-safe?                                                  |
-| ------------------------ | ----------------------------------------------- | -------------------------------------------------------------- |
-| `ALGOLIA_APP_ID`         | Identifies your Algolia application             | ✅ exposed as `NEXT_PUBLIC_ALGOLIA_APP_ID`                     |
-| `ALGOLIA_SEARCH_API_KEY` | Search-only key used by the frontend            | ✅ exposed as `NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY`             |
-| `POSTGRES_URL`           | Supabase connection string for the product page | ❌ server-side only                                            |
-| `ALGOLIA_WRITE_API_KEY`  | Indexing key                                    | ❌ unused by the app; the connector indexes from the dashboard |
+| Variable                             | Purpose                                         | Browser-safe?                                                  |
+| ------------------------------------ | ----------------------------------------------- | -------------------------------------------------------------- |
+| `NEXT_PUBLIC_ALGOLIA_APP_ID`         | Identifies your Algolia application             | ✅ exposed as `NEXT_PUBLIC_ALGOLIA_APP_ID`                     |
+| `NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY` | Search-only key used by the frontend            | ✅ exposed as `NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY`             |
+| `POSTGRES_URL`                       | Supabase connection string for the product page | ❌ server-side only                                            |
+| `NEXT_PUBLIC_ALGOLIA_WRITE_API_KEY`  | Indexing key                                    | ❌ unused by the app; the connector indexes from the dashboard |
+
+⚠️ The write key must never be referenced in client code — its `NEXT_PUBLIC_` prefix
+would inline it into the browser bundle if referenced. This app never references it.
 
 Key files:
 
