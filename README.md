@@ -3,7 +3,7 @@
 A minimal [Next.js](https://nextjs.org) starter for instant, typo-tolerant search
 over Postgres data. [Algolia](https://www.algolia.com) indexes and searches the
 products, [Supabase](https://supabase.com) stores them, and the
-[Algolia connector](https://www.algolia.com/doc/tools/connectors/postgresql/) keeps
+[Algolia connector](https://www.algolia.com/doc/guides/sending-and-managing-data/send-and-update-your-data/connectors/supabase) keeps
 the index in sync — no sync code in the app. Deploy it, seed the database, connect
 the two from their dashboards, and search is live.
 
